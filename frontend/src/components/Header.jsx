@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "../assets/css/Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoePrints } from "@fortawesome/free-solid-svg-icons";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import links from "./Links";
 
 export default function Header() {
+  const [burgerMenu, setBurgerMenu] = useState(false);
   return (
     <>
       <header className="header container">
@@ -14,31 +15,25 @@ export default function Header() {
             VintageRevival
           </a>
           <ul className="header__list">
-            <li className="header__list--item">
-              <a href="/" className="header__list--link">
-                Home
-              </a>
-            </li>
-            <li className="header__list--item">
-              <a href="/" className="header__list--link">
-                About
-              </a>
-            </li>
-            <li className="header__list--item">
-              <a href="/" className="header__list--link">
-                Parts
-              </a>
-            </li>
-            <li className="header__list--item">
-              <a href="/" className="header__list--link">
-                Contact
-              </a>
-            </li>
-            <li className="header__list--item">
-              <div className="burger__menu">
-                <FontAwesomeIcon icon={faBars} />
-              </div>
-            </li>
+            {links.map((item) => {
+              const { id, text, icon, path } = item;
+              return (
+                <li className="header__list--item" key={id}>
+                  <a href={path} className="header__list--link">
+                    {icon && (
+                      <span
+                        onClick={() => {
+                          setBurgerMenu(!burgerMenu);
+                        }}
+                      >
+                        {icon}
+                      </span>
+                    )}
+                    {text}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </header>
