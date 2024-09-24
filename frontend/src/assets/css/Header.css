@@ -26,6 +26,10 @@
   color: #887b70;
 }
 
+.header__list--link:hover {
+  color: #000000;
+}
+
 .btn {
   background-color: #367c56;
   padding: 0.5rem 1.25rem;
@@ -34,4 +38,8 @@
   color: #b8d4b6;
   cursor: pointer;
   font-size: 1rem;
+}
+
+.burger__menu {
+  cursor: pointer;
 }
