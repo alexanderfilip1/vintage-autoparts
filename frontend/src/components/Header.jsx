@@ -2,6 +2,7 @@ import React from "react";
 import "../assets/css/Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoePrints } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
   return (
@@ -34,7 +35,9 @@ export default function Header() {
               </a>
             </li>
             <li className="header__list--item">
-              <button className="btn">Shop</button>
+              <div className="burger__menu">
+                <FontAwesomeIcon icon={faBars} />
+              </div>
             </li>
           </ul>
         </nav>
