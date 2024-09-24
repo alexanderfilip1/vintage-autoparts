@@ -3,6 +3,7 @@ import "../assets/css/Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoePrints } from "@fortawesome/free-solid-svg-icons";
 import links from "./Links";
+import MobileHeader from "./MobileHeader";
 
 export default function Header() {
   const [burgerMenu, setBurgerMenu] = useState(false);
@@ -35,6 +36,7 @@ export default function Header() {
               );
             })}
           </ul>
+          {burgerMenu && <MobileHeader />}
         </nav>
       </header>
     </>
