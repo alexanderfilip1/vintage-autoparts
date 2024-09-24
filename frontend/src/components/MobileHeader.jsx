@@ -1,5 +1,6 @@
 import React from "react";
 import links from "./Links";
+import "../assets/css/MobileHeader.css";
 export default function MobileHeader() {
   return (
     <>

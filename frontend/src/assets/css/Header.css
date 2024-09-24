@@ -43,3 +43,16 @@
 .burger__menu {
   cursor: pointer;
 }
+
+.burger__menu--icon {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .burger__menu--icon {
+    display: block;
+  }
+  .header__list {
+    display: none;
+  }
+}

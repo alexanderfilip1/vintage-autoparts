@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../assets/css/Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoePrints } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import links from "./Links";
 import MobileHeader from "./MobileHeader";
 
@@ -21,21 +22,20 @@ export default function Header() {
               return (
                 <li className="header__list--item" key={id}>
                   <a href={path} className="header__list--link">
-                    {icon && (
-                      <span
-                        onClick={() => {
-                          setBurgerMenu(!burgerMenu);
-                        }}
-                      >
-                        {icon}
-                      </span>
-                    )}
                     {text}
                   </a>
                 </li>
               );
             })}
           </ul>
+          <span
+            className="burger__menu--icon"
+            onClick={() => {
+              setBurgerMenu(!burgerMenu);
+            }}
+          >
+            <FontAwesomeIcon icon={faBars} className="burger__menu" />
+          </span>
           {burgerMenu && <MobileHeader />}
         </nav>
       </header>
