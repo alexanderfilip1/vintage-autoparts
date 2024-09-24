@@ -6,7 +6,9 @@ export default function HomePage() {
     <>
       <div className="main-bg">
         <Header />
-        <HeroSection />
+        <main className="main">
+          <HeroSection />
+        </main>
       </div>
     </>
   );
