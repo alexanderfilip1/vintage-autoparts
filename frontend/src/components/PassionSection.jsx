@@ -10,7 +10,7 @@ export default function PassionSection() {
         <img
           src={image1}
           loading="lazy"
-          alt="Passion 1"
+          alt="Green vintage car"
           className="passion__image"
         />
         <div className="passion__text">
@@ -25,7 +25,7 @@ export default function PassionSection() {
         <img
           src={image2}
           loading="lazy"
-          alt="Passion 2"
+          alt="Green vintage car"
           className="passion__image"
         />
         <div className="passion__text">
