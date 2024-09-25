@@ -1,0 +1,57 @@
+.passion__section {
+  padding-top: 3rem;
+}
+
+.passion__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.passion__image {
+  width: 50%;
+}
+
+.passion__text {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+}
+
+.passion__text p {
+  text-align: left;
+}
+
+.passion-2 {
+  flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 1024px) {
+  .passion__item {
+    flex-direction: column;
+  }
+
+  .passion__image,
+  .passion__text {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .passion__text h1 {
+    text-align: center;
+  }
+
+  .passion-2 {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 728px) {
+  .passion-2 {
+    position: initial;
+    bottom: 0;
+    width: 100%;
+  }
+}
