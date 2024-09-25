@@ -7,7 +7,12 @@ export default function PassionSection() {
   return (
     <section className="passion__section container">
       <div className="passion__item">
-        <img src={image1} alt="Passion 1" className="passion__image" />
+        <img
+          src={image1}
+          loading="lazy"
+          alt="Passion 1"
+          className="passion__image"
+        />
         <div className="passion__text">
           <h1>Passion for</h1>
           <p>
@@ -17,7 +22,12 @@ export default function PassionSection() {
         </div>
       </div>
       <div className="passion__item passion-2">
-        <img src={image2} alt="Passion 2" className="passion__image" />
+        <img
+          src={image2}
+          loading="lazy"
+          alt="Passion 2"
+          className="passion__image"
+        />
         <div className="passion__text">
           <h1>Timeless Elegance</h1>
           <p>
