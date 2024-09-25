@@ -26,6 +26,13 @@
 
 .passion-2 {
   flex-direction: row-reverse;
+  margin-top: -15rem;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1201px) {
+  .passion-2 {
+    margin-top: -10rem;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -45,13 +52,6 @@
 
   .passion-2 {
     flex-direction: column;
-  }
-}
-
-@media screen and (max-width: 728px) {
-  .passion-2 {
-    position: initial;
-    bottom: 0;
-    width: 100%;
+    margin-top: 2rem;
   }
 }
