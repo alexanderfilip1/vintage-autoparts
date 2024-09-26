@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import "animate.css";
 import About from "./pages/AboutPage";
 import CategoriesPage from "./pages/CategoriesPage";
+import AdminPanel from "./pages/AdminPanel";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About />} />
         <Route path="/shop" element={<CategoriesPage />} />
+        <Route path="/admin" element={<AdminPanel />} />
       </Routes>
     </Router>
   );
