@@ -1,11 +1,10 @@
 .main-content {
   padding: 40px 20px;
-
   color: #333;
 }
 
 .about-section {
-  max-width: 900px;
+  max-width: 80%;
   margin: 0 auto;
 }
 
@@ -67,4 +66,8 @@
 
 .about-section__list-item strong {
   color: #333;
+}
+
+.about-section p {
+  text-align: left;
 }
