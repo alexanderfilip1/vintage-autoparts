@@ -8,11 +8,11 @@
 }
 
 .footer__container {
-  padding: 2rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding-top: 2rem;
 }
 
 .footer ul,
@@ -22,9 +22,13 @@
 }
 
 .footer__copyright {
-  width: 25%;
-  gap: 3rem;
+  width: 100%;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+  margin-top: 2rem;
 }
 
 .footer span,
@@ -37,9 +41,56 @@
   margin-top: 0.5rem;
 }
 
+.footer__quickLinks,
+.customer__support,
+.company__info {
+  width: 30%;
+}
+
+.footer__quickLinks--item,
+.customer__support--item,
+.company__info--item {
+  margin: 0.5rem 0;
+}
+
+.footer__quickLinks--anchor,
+.customer__support--anchor,
+.company__info--anchor {
+  text-decoration: none;
+  color: rgb(135, 255, 255);
+}
+
 @media screen and (max-width: 768px) {
-  .footer__container div {
-    width: 50%;
-    gap: 2rem;
+  .footer__quickLinks,
+  .customer__support,
+  .company__info {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer__container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer__quickLinks,
+  .customer__support,
+  .company__info {
+    width: 45%;
+    margin-bottom: 2rem;
+  }
+
+  .footer__container {
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .shoe__icon {
+    font-size: 2rem;
+  }
+
+  .footer span,
+  .footer a {
+    font-size: 0.875rem;
   }
 }

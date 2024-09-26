@@ -6,14 +6,6 @@ export default function Footer() {
   return (
     <footer className="footer container">
       <div className="footer__container">
-        <div className="footer__copyright">
-          <FontAwesomeIcon
-            icon={faShoePrints}
-            transform="rotate-270"
-            className="shoe__icon"
-          />{" "}
-          <span>© 2024 VintageRevival, Inc. All rights reserved.</span>
-        </div>
         <div className="footer__quickLinks">
           <span>Quick Links</span>
           <ul className="footer__quickLinks--list">
@@ -88,6 +80,14 @@ export default function Footer() {
               </a>
             </li>
           </ul>
+        </div>
+        <div className="footer__copyright">
+          <FontAwesomeIcon
+            icon={faShoePrints}
+            transform="rotate-270"
+            className="shoe__icon"
+          />{" "}
+          <span>© 2024 VintageRevival, Inc. All rights reserved.</span>
         </div>
       </div>
     </footer>
