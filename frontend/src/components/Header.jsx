@@ -9,7 +9,7 @@ import {
 import links from "./Links";
 import MobileHeader from "./MobileHeader";
 
-export default function Header() {
+export default function Header({ logo }) {
   const [burgerMenu, setBurgerMenu] = useState(false);
 
   return (
@@ -18,7 +18,7 @@ export default function Header() {
         <nav className="header__nav">
           <a href="/" className="header__logo">
             <FontAwesomeIcon icon={faShoePrints} transform="rotate-270" />{" "}
-            VintageRevival
+            {logo}
           </a>
           <ul className="header__list">
             {links.map((item) => {
