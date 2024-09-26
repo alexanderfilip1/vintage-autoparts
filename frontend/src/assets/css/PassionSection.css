@@ -37,7 +37,7 @@
 
 @media screen and (max-width: 1024px) {
   .passion__item {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .passion__image,
@@ -51,7 +51,7 @@
   }
 
   .passion-2 {
-    flex-direction: column;
+    flex-direction: column-reverse;
     margin-top: 2rem;
   }
 }
