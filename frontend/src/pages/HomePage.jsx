@@ -4,7 +4,7 @@ import HeroSection from "../components/HeroSection";
 import HeroBanner from "../components/HeroBanner";
 import CollectionSection from "../components/CollectionSection";
 import PassionSection from "../components/PassionSection";
-import ContactSeciton from "../components/ContactSection";
+import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 export default function HomePage() {
   return (
@@ -16,7 +16,7 @@ export default function HomePage() {
           <HeroBanner />
           <CollectionSection />
           <PassionSection />
-          <ContactSeciton />
+          <ContactSection />
           <Footer />
         </main>
       </div>
