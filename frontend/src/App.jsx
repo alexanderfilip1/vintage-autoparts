@@ -4,6 +4,7 @@ import "./App.css";
 import HomePage from "./pages/HomePage";
 import "animate.css";
 import About from "./pages/AboutPage";
+import CategoriesPage from "./pages/CategoriesPage";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About />} />
+        <Route path="/categories" element={<CategoriesPage />} />
       </Routes>
     </Router>
   );
