@@ -4,11 +4,11 @@ import banner from "../assets/images/contact.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
 
-export default function ContactSection() {
+export default function ContactSection({ phoneNumber }) {
   return (
     <section className="contact__section container">
       <h1 className="contact__section--title">Connect with Us</h1>
-      <a href="tel:+40724724933" className="contact__section--btn">
+      <a href={`tel:${phoneNumber}`} className="contact__section--btn">
         <FontAwesomeIcon icon={faPhoneVolume} />
         Call Now
       </a>
