@@ -1,0 +1,45 @@
+.footer {
+  background: linear-gradient(rgb(144, 166, 143) 0%, rgb(144, 166, 143) 100%);
+}
+
+.shoe__icon {
+  color: #fff;
+  font-size: 3rem;
+}
+
+.footer__container {
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer ul,
+.footer__copyright {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__copyright {
+  width: 25%;
+  gap: 3rem;
+  align-items: center;
+}
+
+.footer span,
+.footer a {
+  color: rgb(135, 255, 255);
+}
+
+.footer ul {
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .footer__container div {
+    width: 50%;
+    gap: 2rem;
+  }
+}
