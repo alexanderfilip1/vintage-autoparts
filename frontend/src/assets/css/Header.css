@@ -15,6 +15,7 @@
 
 .header__list {
   gap: 1rem;
+  list-style: none;
 }
 
 .header__logo {
