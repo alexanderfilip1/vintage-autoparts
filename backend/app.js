@@ -13,8 +13,17 @@ const corsOptions = {
 var indexRouter = require("./routes/index");
 const siteData = require("./routes/siteData");
 const adminLogin = require("./routes/adminLogin");
+const registerAdmin = require("./middlewares/registerAdmin");
 
 var app = express();
+
+registerAdmin()
+  .then(() => {
+    console.log("Admin registration process complete.");
+  })
+  .catch((err) => {
+    console.error("Error during admin registration:", err);
+  });
 
 app.use(cors(corsOptions));
 app.use(logger("dev"));

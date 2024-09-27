@@ -5,9 +5,11 @@ const bcrypt = require("bcrypt");
 const validate = require("../middlewares/validate");
 const adminSchema = require("../schemas/adminLoginSchema");
 const jwt = require("jsonwebtoken");
+const registerAdmin = require("../middlewares/registerAdmin");
 
 router.post("/", validate(adminSchema), async function (req, res, next) {
   const { username, password } = req.body;
+  registerAdmin();
   try {
     const [data] = await db.query("SELECT * FROM admin WHERE username = ?", [
       username,
