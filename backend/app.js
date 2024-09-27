@@ -14,6 +14,7 @@ var indexRouter = require("./routes/index");
 const siteData = require("./routes/siteData");
 const adminLogin = require("./routes/adminLogin");
 const registerAdmin = require("./middlewares/registerAdmin");
+const checkAdmin = require("./routes/checkAdmin");
 
 var app = express();
 
@@ -35,5 +36,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/api/site-data", siteData);
 app.use("/api/admin-login", adminLogin);
+app.use("/api/checkAdmin", checkAdmin);
 
 module.exports = app;
