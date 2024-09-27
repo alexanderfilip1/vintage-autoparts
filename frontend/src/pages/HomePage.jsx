@@ -12,6 +12,20 @@ export default function HomePage() {
   const data = useAuthToken();
   const [siteName, setSiteName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const logVisit = async () => {
+    try {
+      await fetch("http://localhost:3000/api/log-visit", {
+        method: "POST",
+        credentials: "include",
+      });
+    } catch (err) {
+      console.log("Error logging visit:", err);
+    }
+  };
+
+  useEffect(() => {
+    logVisit();
+  }, []);
 
   useEffect(() => {
     if (data && data.length > 0) {
