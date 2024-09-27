@@ -1,24 +1,26 @@
 const db = require("../config/db");
 
 class CategoryModel {
-  static getAllCategories(callback) {
+  static async getAllCategories() {
     const sql = "SELECT * FROM categories";
-    db.query(sql, callback);
+    const [results] = await db.query(sql);
+    return results;
   }
 
-  static addCategory(newCategory, callback) {
+  static async addCategory(newCategory) {
     const sql = "INSERT INTO categories SET ?";
-    db.query(sql, newCategory, callback);
+    const [result] = await db.query(sql, newCategory);
+    return result;
   }
 
-  static updateCategory(id, updatedCategory, callback) {
+  static async updateCategory(id, updatedCategory) {
     const sql = "UPDATE categories SET ? WHERE id = ?";
-    db.query(sql, [updatedCategory, id], callback);
+    await db.query(sql, [updatedCategory, id]);
   }
 
-  static deleteCategory(id, callback) {
+  static async deleteCategory(id) {
     const sql = "DELETE FROM categories WHERE id = ?";
-    db.query(sql, [id], callback);
+    await db.query(sql, [id]);
   }
 }
 
