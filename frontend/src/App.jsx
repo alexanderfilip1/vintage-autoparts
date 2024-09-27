@@ -6,6 +6,7 @@ import "animate.css";
 import About from "./pages/AboutPage";
 import CategoriesPage from "./pages/CategoriesPage";
 import AdminPanel from "./pages/AdminPanel";
+import AdminLogin from "./pages/AdminLogin";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/shop" element={<CategoriesPage />} />
         <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
       </Routes>
     </Router>
   );
