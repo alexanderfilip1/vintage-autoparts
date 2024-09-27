@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.main-bg {
+  background-color: #fdeada;
+}
+
+.container {
+  padding: 0.5rem 3rem;
+}
+
+.main h1 {
+  font-size: 4rem;
+}
+
+.main p {
+  color: #95897e;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex-grow: 1;
+}
