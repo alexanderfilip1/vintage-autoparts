@@ -7,6 +7,9 @@ export default function AdminPanelSection() {
   const [parts, setParts] = useState([]);
   const [visitors, setVisitors] = useState({});
   const [notification, setNotification] = useState("");
+  const [newCategory, setNewCategory] = useState("");
+  const [editingCategoryId, setEditingCategoryId] = useState(null);
+  const [editingCategoryName, setEditingCategoryName] = useState("");
 
   useEffect(() => {
     fetchSettings();
@@ -20,7 +23,6 @@ export default function AdminPanelSection() {
       const response = await fetch("http://localhost:3000/api/site-data");
       const data = await response.json();
       setSettings(data[0]);
-      console.log(data[0].sitename);
     } catch (error) {
       console.error("Error fetching settings:", error);
     }
@@ -71,16 +73,91 @@ export default function AdminPanelSection() {
 
       const data = await response.json();
       if (response.ok) {
-        console.log("Settings updated successfully:", data.message);
         setNotification("Settings updated successfully!");
         fetchSettings();
       } else {
         setNotification(`Error updating settings: ${data.message}`);
-        console.error("Error updating settings:", data.message);
       }
     } catch (error) {
       setNotification(`Error updating settings: ${error.message}`);
-      console.error("Error updating settings:", error);
+    }
+  };
+
+  const handleAddCategory = async () => {
+    if (!newCategory) {
+      setNotification("Category name cannot be empty.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/api/categories", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ category_name: newCategory }),
+      });
+
+      if (response.ok) {
+        setNotification("Category added successfully!");
+        setNewCategory("");
+        fetchCategories();
+      } else {
+        const data = await response.json();
+        setNotification(`Error adding category: ${data.message}`);
+      }
+    } catch (error) {
+      setNotification(`Error adding category: ${error.message}`);
+    }
+  };
+
+  const handleEditCategory = async (id) => {
+    if (!editingCategoryName) {
+      setNotification("Category name cannot be empty.");
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/categories/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ category_name: editingCategoryName }),
+        }
+      );
+
+      if (response.ok) {
+        setNotification("Category updated successfully!");
+        setEditingCategoryId(null);
+        setEditingCategoryName("");
+        fetchCategories();
+      } else {
+        const data = await response.json();
+        setNotification(`Error updating category: ${data.message}`);
+      }
+    } catch (error) {
+      setNotification(`Error updating category: ${error.message}`);
+    }
+  };
+
+  const handleDeleteCategory = async (id) => {
+    try {
+      const response = await fetch(`/api/categories/${id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        setNotification("Category deleted successfully!");
+        fetchCategories();
+      } else {
+        const data = await response.json();
+        setNotification(`Error deleting category: ${data.message}`);
+      }
+    } catch (error) {
+      setNotification(`Error deleting category: ${error.message}`);
     }
   };
 
@@ -123,13 +200,47 @@ export default function AdminPanelSection() {
         <ul>
           {categories.map((category) => (
             <li key={category.id}>
-              {category.category_name}
-              <button onClick={() => {}}>Edit</button>
-              <button onClick={() => {}}>Delete</button>
+              {editingCategoryId === category.id ? (
+                <>
+                  <input
+                    type="text"
+                    value={editingCategoryName}
+                    onChange={(e) => setEditingCategoryName(e.target.value)}
+                    placeholder="Edit Category"
+                  />
+                  <button onClick={() => handleEditCategory(category.id)}>
+                    Save
+                  </button>
+                  <button onClick={() => setEditingCategoryId(null)}>
+                    Cancel
+                  </button>
+                </>
+              ) : (
+                <>
+                  {category.category_name}
+                  <button
+                    onClick={() => {
+                      setEditingCategoryId(category.id);
+                      setEditingCategoryName(category.category_name);
+                    }}
+                  >
+                    Edit
+                  </button>
+                  <button onClick={() => handleDeleteCategory(category.id)}>
+                    Delete
+                  </button>
+                </>
+              )}
             </li>
           ))}
         </ul>
-        <button onClick={() => {}}>Add Category</button>
+        <input
+          type="text"
+          value={newCategory}
+          onChange={(e) => setNewCategory(e.target.value)}
+          placeholder="Add New Category"
+        />
+        <button onClick={handleAddCategory}>Add Category</button>
       </section>
 
       <section className="card">
