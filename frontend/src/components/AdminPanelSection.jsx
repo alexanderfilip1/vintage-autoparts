@@ -6,6 +6,7 @@ export default function AdminPanelSection() {
   const [categories, setCategories] = useState([]);
   const [parts, setParts] = useState([]);
   const [visitors, setVisitors] = useState({});
+  const [notification, setNotification] = useState("");
 
   useEffect(() => {
     fetchSettings();
@@ -16,9 +17,10 @@ export default function AdminPanelSection() {
 
   const fetchSettings = async () => {
     try {
-      const response = await fetch("/api/settings");
+      const response = await fetch("http://localhost:3000/api/site-data");
       const data = await response.json();
-      setSettings(data);
+      setSettings(data[0]);
+      console.log(data[0].sitename);
     } catch (error) {
       console.error("Error fetching settings:", error);
     }
@@ -46,7 +48,7 @@ export default function AdminPanelSection() {
 
   const fetchVisitors = async () => {
     try {
-      const response = await fetch("/api/visits");
+      const response = await fetch("http://localhost:3000/api/log-visit");
       const data = await response.json();
       setVisitors(data);
     } catch (error) {
@@ -54,9 +56,39 @@ export default function AdminPanelSection() {
     }
   };
 
+  const updateSettings = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/site-data", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          sitename: settings.sitename,
+          phone_number: settings.phone_number,
+        }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        console.log("Settings updated successfully:", data.message);
+        setNotification("Settings updated successfully!");
+        fetchSettings();
+      } else {
+        setNotification(`Error updating settings: ${data.message}`);
+        console.error("Error updating settings:", data.message);
+      }
+    } catch (error) {
+      setNotification(`Error updating settings: ${error.message}`);
+      console.error("Error updating settings:", error);
+    }
+  };
+
   return (
-    <div className="admin-panel">
+    <div className="admin-panel main-bg">
       <h1>Admin Panel</h1>
+
+      {notification && <div className="notification">{notification}</div>}
 
       <section className="card">
         <h2>Visitor Statistics</h2>
@@ -83,7 +115,7 @@ export default function AdminPanelSection() {
           }
           placeholder="Phone Number"
         />
-        <button onClick={() => {}}>Update Settings</button>
+        <button onClick={updateSettings}>Update Settings</button>
       </section>
 
       <section className="card">

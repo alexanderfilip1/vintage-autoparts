@@ -40,7 +40,7 @@ export default function AdminLogin() {
   };
 
   return (
-    <main className="main main-bg">
+    <main className="main main-bg admin-login">
       <section className="login__section">
         <form className="login__form" onSubmit={sendData}>
           <h2 className="login__title">Admin Login</h2>
