@@ -74,3 +74,7 @@
 .card li button:hover {
   background-color: #c82333;
 }
+
+.buttons {
+  display: flex;
+}

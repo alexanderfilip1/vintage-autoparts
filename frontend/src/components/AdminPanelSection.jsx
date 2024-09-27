@@ -30,8 +30,11 @@ export default function AdminPanelSection() {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch("/api/categories");
+      const response = await fetch("http://localhost:3000/api/categories");
+      if (!response.ok)
+        throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
+      console.log("Fetched categories:", data); // Debugging line
       setCategories(data);
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -40,7 +43,7 @@ export default function AdminPanelSection() {
 
   const fetchParts = async () => {
     try {
-      const response = await fetch("/api/parts");
+      const response = await fetch("http://localhost:3000/api/parts");
       const data = await response.json();
       setParts(data);
     } catch (error) {
@@ -145,9 +148,12 @@ export default function AdminPanelSection() {
 
   const handleDeleteCategory = async (id) => {
     try {
-      const response = await fetch(`/api/categories/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `http://localhost:3000/api/categories/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (response.ok) {
         setNotification("Category deleted successfully!");
@@ -198,41 +204,47 @@ export default function AdminPanelSection() {
       <section className="card">
         <h2>Categories</h2>
         <ul>
-          {categories.map((category) => (
-            <li key={category.id}>
-              {editingCategoryId === category.id ? (
-                <>
-                  <input
-                    type="text"
-                    value={editingCategoryName}
-                    onChange={(e) => setEditingCategoryName(e.target.value)}
-                    placeholder="Edit Category"
-                  />
-                  <button onClick={() => handleEditCategory(category.id)}>
-                    Save
-                  </button>
-                  <button onClick={() => setEditingCategoryId(null)}>
-                    Cancel
-                  </button>
-                </>
-              ) : (
-                <>
-                  {category.category_name}
-                  <button
-                    onClick={() => {
-                      setEditingCategoryId(category.id);
-                      setEditingCategoryName(category.category_name);
-                    }}
-                  >
-                    Edit
-                  </button>
-                  <button onClick={() => handleDeleteCategory(category.id)}>
-                    Delete
-                  </button>
-                </>
-              )}
-            </li>
-          ))}
+          {categories.length > 0 ? (
+            categories.map((category) => (
+              <li key={category.id}>
+                {editingCategoryId === category.id ? (
+                  <>
+                    <input
+                      type="text"
+                      value={editingCategoryName}
+                      onChange={(e) => setEditingCategoryName(e.target.value)}
+                      placeholder="Edit Category"
+                    />
+                    <button onClick={() => handleEditCategory(category.id)}>
+                      Save
+                    </button>
+                    <button onClick={() => setEditingCategoryId(null)}>
+                      Cancel
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    {category.category_name}
+                    <div className="buttons">
+                      <button
+                        onClick={() => {
+                          setEditingCategoryId(category.id);
+                          setEditingCategoryName(category.category_name);
+                        }}
+                      >
+                        Edit
+                      </button>
+                      <button onClick={() => handleDeleteCategory(category.id)}>
+                        Delete
+                      </button>
+                    </div>
+                  </>
+                )}
+              </li>
+            ))
+          ) : (
+            <li>No categories available.</li>
+          )}
         </ul>
         <input
           type="text"
