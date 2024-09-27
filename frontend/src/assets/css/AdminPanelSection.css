@@ -1,0 +1,67 @@
+.admin-panel {
+  padding: 20px;
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+}
+
+.admin-panel h1 {
+  color: #343a40;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.card h2 {
+  color: #343a40;
+  margin-bottom: 10px;
+}
+
+.card input {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  width: calc(100% - 22px);
+}
+
+.card button {
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.card button:hover {
+  background-color: #0056b3;
+}
+
+.card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.card li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.card li button {
+  background-color: #dc3545;
+}
+
+.card li button:hover {
+  background-color: #c82333;
+}
