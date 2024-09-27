@@ -16,6 +16,7 @@ const adminLogin = require("./routes/adminLogin");
 const registerAdmin = require("./middlewares/registerAdmin");
 const checkAdmin = require("./routes/checkAdmin");
 const visits = require("./routes/visits");
+const categoryRoutes = require("./routes/adminCategories");
 
 var app = express();
 
@@ -39,5 +40,5 @@ app.use("/api/site-data", siteData);
 app.use("/api/admin-login", adminLogin);
 app.use("/api/checkAdmin", checkAdmin);
 app.use("/api/log-visit", visits);
-
+app.use("/api/categories", categoryRoutes);
 module.exports = app;
