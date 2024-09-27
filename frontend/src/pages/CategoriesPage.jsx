@@ -1,34 +1,59 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../assets/css/CategoriesPage.css";
 
-const partsData = {
-  mercedes: [
-    { name: "Mercedes Part 1", image: "mercedes1.jpg" },
-    { name: "Mercedes Part 2", image: "mercedes2.jpg" },
-  ],
-  bmw: [
-    { name: "BMW Part 1", image: "bmw1.jpg" },
-    { name: "BMW Part 2", image: "bmw2.jpg" },
-  ],
-  audi: [
-    { name: "Audi Part 1", image: "audi1.jpg" },
-    { name: "Audi Part 2", image: "audi2.jpg" },
-  ],
-};
-
-const allParts = [...partsData.mercedes, ...partsData.bmw, ...partsData.audi];
-
 const ITEMS_PER_PAGE = 9;
 
 export default function CategoriesPage() {
+  const [partsData, setPartsData] = useState({});
+  const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [filterText, setFilterText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchCategoriesAndPartsData = async () => {
+      try {
+        const categoriesResponse = await fetch(
+          "http://localhost:3000/api/categories"
+        );
+        if (!categoriesResponse.ok) {
+          throw new Error("Failed to fetch categories");
+        }
+        const categoriesData = await categoriesResponse.json();
+        setCategories(categoriesData);
+
+        const partsResponse = await fetch("http://localhost:3000/api/parts");
+        if (!partsResponse.ok) {
+          throw new Error("Failed to fetch parts");
+        }
+        const partsData = await partsResponse.json();
+
+        const groupedPartsData = categoriesData.reduce((acc, category) => {
+          acc[category.category_name] = partsData.filter(
+            (part) => part.category_id === category.id
+          );
+          return acc;
+        }, {});
+
+        setPartsData(groupedPartsData);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCategoriesAndPartsData();
+  }, []);
+
+  const allParts = Object.values(partsData).flat();
 
   const filteredParts = (
-    selectedCategory === "all" ? allParts : partsData[selectedCategory]
+    selectedCategory === "all" ? allParts : partsData[selectedCategory] || []
   ).filter((part) =>
     part.name.toLowerCase().includes(filterText.toLowerCase())
   );
@@ -39,6 +64,14 @@ export default function CategoriesPage() {
     startIndex,
     startIndex + ITEMS_PER_PAGE
   );
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <>
@@ -59,39 +92,21 @@ export default function CategoriesPage() {
               >
                 All Parts
               </button>
-              <button
-                className={`category-button ${
-                  selectedCategory === "mercedes" ? "active" : ""
-                }`}
-                onClick={() => {
-                  setSelectedCategory("mercedes");
-                  setCurrentPage(1);
-                }}
-              >
-                Mercedes
-              </button>
-              <button
-                className={`category-button ${
-                  selectedCategory === "bmw" ? "active" : ""
-                }`}
-                onClick={() => {
-                  setSelectedCategory("bmw");
-                  setCurrentPage(1);
-                }}
-              >
-                BMW
-              </button>
-              <button
-                className={`category-button ${
-                  selectedCategory === "audi" ? "active" : ""
-                }`}
-                onClick={() => {
-                  setSelectedCategory("audi");
-                  setCurrentPage(1);
-                }}
-              >
-                Audi
-              </button>
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  className={`category-button ${
+                    selectedCategory === category.category_name ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    setSelectedCategory(category.category_name);
+                    setCurrentPage(1);
+                  }}
+                >
+                  {category.category_name.charAt(0).toUpperCase() +
+                    category.category_name.slice(1)}
+                </button>
+              ))}
             </div>
             <input
               type="text"
@@ -104,7 +119,7 @@ export default function CategoriesPage() {
               {paginatedParts.map((part, index) => (
                 <div key={index} className="part-item">
                   <img
-                    src={part.image}
+                    src={`http://localhost:3000/${part.image}`}
                     alt={part.name}
                     className="part-image"
                   />
