@@ -5,7 +5,7 @@ import {
   faShoePrints,
   faBars,
   faTimes,
-} from "@fortawesome/free-solid-svg-icons"; // Import faTimes for the close icon
+} from "@fortawesome/free-solid-svg-icons";
 import links from "./Links";
 import MobileHeader from "./MobileHeader";
 
