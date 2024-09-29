@@ -12,12 +12,17 @@ const links = [
   {
     id: 3,
     text: "Parts",
-    path: "/parts",
+    path: "/shop",
   },
   {
     id: 4,
-    text: "Contact",
-    path: "/contact",
+    text: "FAQ",
+    path: "/faq",
+  },
+  {
+    id: 5,
+    text: "Our Mission",
+    path: "/our-mission",
   },
 ];
 
