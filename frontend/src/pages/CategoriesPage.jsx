@@ -5,7 +5,7 @@ import "../assets/css/CategoriesPage.css";
 
 const ITEMS_PER_PAGE = 9;
 
-export default function CategoriesPage() {
+export default function CategoriesPage({ logo }) {
   const [partsData, setPartsData] = useState({});
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -76,7 +76,7 @@ export default function CategoriesPage() {
   return (
     <>
       <div className="main main-bg">
-        <Header />
+        <Header logo={logo} />
         <main className="main-content">
           <section className="categories-section">
             <h1>Categories</h1>
