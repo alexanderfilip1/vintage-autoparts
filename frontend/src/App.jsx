@@ -27,7 +27,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage phone={phoneNumber} />} />
         <Route path="/about" element={<About logo={siteName} />} />
         <Route
           path="/shop"

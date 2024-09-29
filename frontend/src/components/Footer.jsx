@@ -16,18 +16,13 @@ export default function Footer() {
               </a>
             </li>
             <li className="footer__item">
-              <a href="/" className="footer__link">
+              <a href="/about" className="footer__link">
                 About
               </a>
             </li>
             <li className="footer__item">
-              <a href="/" className="footer__link">
+              <a href="/shop" className="footer__link">
                 Parts
-              </a>
-            </li>
-            <li className="footer__item">
-              <a href="/" className="footer__link">
-                Contact
               </a>
             </li>
           </ul>
@@ -36,23 +31,18 @@ export default function Footer() {
           <h3 className="footer__title">Customer Support</h3>
           <ul className="footer__list">
             <li className="footer__item">
-              <a href="/" className="footer__link">
+              <a href="/faq" className="footer__link">
                 FAQ
               </a>
             </li>
             <li className="footer__item">
-              <a href="/" className="footer__link">
+              <a href="/shipping" className="footer__link">
                 Shipping
               </a>
             </li>
             <li className="footer__item">
-              <a href="/" className="footer__link">
+              <a href="/returns" className="footer__link">
                 Returns
-              </a>
-            </li>
-            <li className="footer__item">
-              <a href="/" className="footer__link">
-                Contact Us
               </a>
             </li>
           </ul>
@@ -61,23 +51,18 @@ export default function Footer() {
           <h3 className="footer__title">Company Info</h3>
           <ul className="footer__list">
             <li className="footer__item">
-              <a href="/" className="footer__link">
+              <a href="/about" className="footer__link">
                 About Us
               </a>
             </li>
             <li className="footer__item">
-              <a href="/" className="footer__link">
+              <a href="/our-mission" className="footer__link">
                 Our Mission
               </a>
             </li>
             <li className="footer__item">
-              <a href="/" className="footer__link">
+              <a href="/partners" className="footer__link">
                 Partners
-              </a>
-            </li>
-            <li className="footer__item">
-              <a href="/" className="footer__link">
-                Contact
               </a>
             </li>
           </ul>
