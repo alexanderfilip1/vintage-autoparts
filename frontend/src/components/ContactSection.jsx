@@ -5,12 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
 import ActionBtn from "./ActionBtn";
 
-export default function ContactSection({ phoneNumber }) {
+export default function ContactSection({ phone }) {
   return (
     <section className="contact__section container">
       <h1 className="contact__section--title">Connect with Us</h1>
       <ActionBtn
-        path={`tel:${phoneNumber}`}
+        path={`tel:${phone}`}
         icon={<FontAwesomeIcon icon={faPhoneVolume} />}
         text={"Call Now"}
       />
