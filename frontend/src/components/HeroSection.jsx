@@ -9,7 +9,7 @@ export default function HeroSection() {
   return (
     <>
       <section className="heroSection container">
-        <div className="heroSection__text">
+        <div className="heroSection__text fadeIn">
           <h1>Vintage Car Parts</h1>
           <p>
             Welcome to our vintage car parts store, where you&apos;ll find a

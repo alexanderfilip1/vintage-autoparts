@@ -79,7 +79,7 @@ export default function CategoriesPage({ logo, phone }) {
       <div className="main main-bg">
         <Header logo={logo} />
         <main className="main-content">
-          <section className="categories-section">
+          <section className="categories-section fadeInLeftBig">
             <h1>Categories</h1>
             <div className="categories-buttons">
               <button
@@ -128,8 +128,12 @@ export default function CategoriesPage({ logo, phone }) {
                     />
                     <h3 className="part-name">{part.name}</h3>
                     <div className="part-prices">
-                      <span className="part-originalPrice">${originalPrice}</span>
-                      <span className="part-discountedPrice">${part.price}</span>
+                      <span className="part-originalPrice">
+                        ${originalPrice}
+                      </span>
+                      <span className="part-discountedPrice">
+                        ${part.price}
+                      </span>
                     </div>
                     <div className="part-actionBtn">
                       <ActionBtn

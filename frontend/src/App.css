@@ -34,3 +34,16 @@
 .main {
   flex-grow: 1;
 }
+
+.fadeInLeftBig {
+  animation: fadeInLeftBig;
+  animation-duration: 2s;
+}
+.fadeInRightBig {
+  animation: fadeInRightBig;
+  animation-duration: 2s;
+}
+.fadeIn {
+  animation: fadeIn;
+  animation-duration: 2s;
+}

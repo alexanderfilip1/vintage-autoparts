@@ -25,12 +25,12 @@ export default function About({ logo }) {
               <img
                 src={image1}
                 alt="Classic Car 1"
-                className="about-section__image"
+                className="about-section__image fadeInLeftBig"
               />
               <img
                 src={image2}
                 alt="Classic Car 2"
-                className="about-section__image"
+                className="about-section__image fadeInRightBig"
               />
             </div>
 
