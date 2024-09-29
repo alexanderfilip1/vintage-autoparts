@@ -8,6 +8,7 @@ import CategoriesPage from "./pages/CategoriesPage";
 import AdminPanel from "./pages/AdminPanel";
 import AdminLogin from "./pages/AdminLogin";
 import useAuthToken from "./hooks/getSiteData";
+import FAQ from "./pages/FAQPage";
 function App() {
   const data = useAuthToken();
   const [siteName, setSiteName] = useState("");
@@ -30,6 +31,7 @@ function App() {
         />
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/faq" element={<FAQ logo={siteName} />} />
       </Routes>
     </Router>
   );
