@@ -13,7 +13,7 @@
 .category-button {
   margin: 5px;
   padding: 10px 20px;
-  background-color: #007bff;
+  background: linear-gradient(rgb(144, 166, 143) 0%, rgb(144, 166, 143) 100%);
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -23,7 +23,7 @@
 
 .category-button:hover,
 .category-button.active {
-  background-color: #0056b3;
+  background: linear-gradient(rgb(100, 120, 100) 0%, rgb(100, 120, 100) 100%);
 }
 
 .filter-input {
@@ -39,6 +39,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  list-style: none;
 }
 
 .part-item {
@@ -72,7 +73,7 @@
 .pagination-buttons button {
   margin: 5px;
   padding: 10px 20px;
-  background-color: #007bff;
+  background: linear-gradient(rgb(144, 166, 143) 0%, rgb(144, 166, 143) 100%);
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -86,5 +87,62 @@
 }
 
 .pagination-buttons button:hover:enabled {
-  background-color: #0056b3;
+  background: linear-gradient(rgb(100, 120, 100) 0%, rgb(100, 120, 100) 100%);
+}
+
+.showBtn {
+  color: #fff;
+  background: linear-gradient(rgb(144, 166, 143) 0%, rgb(144, 166, 143) 100%);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.showBtn:hover,
+.showBtn:active,
+.showBtn.active {
+  background: linear-gradient(rgb(100, 120, 100) 0%, rgb(100, 120, 100) 100%);
+}
+
+.part-actionBtn {
+  margin-top: 1rem;
+  background: linear-gradient(rgb(144, 166, 143) 0%, rgb(144, 166, 143) 100%);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.part-actionBtn:hover,
+.part-actionBtn:active,
+.part-actionBtn.active {
+  background: linear-gradient(rgb(100, 120, 100) 0%, rgb(100, 120, 100) 100%);
+}
+
+@media (hover: none) {
+  button:hover,
+  .category-button:hover,
+  .pagination-buttons button:hover,
+  .showBtn:hover,
+  .part-actionBtn:hover {
+    background: linear-gradient(rgb(144, 166, 143) 0%, rgb(144, 166, 143) 100%);
+  }
+
+  button:active,
+  .category-button:active,
+  .pagination-buttons button:active,
+  .showBtn:active,
+  .part-actionBtn:active,
+  button:focus,
+  .category-button:focus,
+  .pagination-buttons button:focus,
+  .showBtn:focus,
+  .part-actionBtn:focus {
+    background: linear-gradient(rgb(100, 120, 100) 0%, rgb(100, 120, 100) 100%);
+  }
 }

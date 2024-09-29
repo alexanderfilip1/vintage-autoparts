@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../assets/css/CategoriesPage.css";
+import ActionBtn from "../components/ActionBtn";
 
 const ITEMS_PER_PAGE = 9;
 
-export default function CategoriesPage({ logo }) {
+export default function CategoriesPage({ logo, phone }) {
   const [partsData, setPartsData] = useState({});
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -115,18 +116,25 @@ export default function CategoriesPage({ logo }) {
               onChange={(e) => setFilterText(e.target.value)}
               className="filter-input"
             />
-            <div className="parts-list">
+            <ul className="parts-list">
               {paginatedParts.map((part, index) => (
-                <div key={index} className="part-item">
+                <li key={index} className="part-item">
                   <img
                     src={`http://localhost:3000/${part.image}`}
                     alt={part.name}
                     className="part-image"
                   />
-                  <div className="part-name">{part.name}</div>
-                </div>
+                  <h3 className="part-name">{part.name}</h3>
+                  <div className="part-actionBtn">
+                    <ActionBtn
+                      path={`tel:${phone}`}
+                      text={"Buy Now"}
+                      className={"showBtn"}
+                    />
+                  </div>
+                </li>
               ))}
-            </div>
+            </ul>
             <div className="pagination-buttons">
               <button
                 onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}

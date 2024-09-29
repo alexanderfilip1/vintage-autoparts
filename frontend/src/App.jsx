@@ -24,7 +24,10 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About logo={siteName} />} />
-        <Route path="/shop" element={<CategoriesPage logo={siteName} />} />
+        <Route
+          path="/shop"
+          element={<CategoriesPage logo={siteName} phone={phoneNumber} />}
+        />
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/admin/login" element={<AdminLogin />} />
       </Routes>
