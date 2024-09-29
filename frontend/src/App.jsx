@@ -12,6 +12,7 @@ import FAQ from "./pages/FAQPage";
 import Shipping from "./pages/ShippingPage";
 import Returns from "./pages/ReturnsPage";
 import OurMission from "./pages/OurMissionPage";
+import Partners from "./pages/PartnersPage";
 function App() {
   const data = useAuthToken();
   const [siteName, setSiteName] = useState("");
@@ -38,6 +39,7 @@ function App() {
         <Route path="/shipping" element={<Shipping logo={siteName} />} />
         <Route path="/returns" element={<Returns logo={siteName} />} />
         <Route path="/our-mission" element={<OurMission logo={siteName} />} />
+        <Route path="/partners" element={<Partners logo={siteName} />} />
       </Routes>
     </Router>
   );
