@@ -1,0 +1,30 @@
+.faq-section {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.faq-section__title {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.faq-section__item {
+  margin-bottom: 20px;
+}
+
+.faq-section__question {
+  font-size: 1.5em;
+  color: #555;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.faq-section__answer {
+  font-size: 1em;
+  color: #666;
+  line-height: 1.8;
+  text-align: left !important;
+}
