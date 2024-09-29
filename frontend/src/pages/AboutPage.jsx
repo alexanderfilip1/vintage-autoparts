@@ -5,11 +5,11 @@ import image1 from "../assets/images/passion-1.webp";
 import image2 from "../assets/images/passion-2.webp";
 import "../assets/css/About.css";
 
-export default function About() {
+export default function About({ logo }) {
   return (
     <>
       <div className="main main-bg">
-        <Header />
+        <Header logo={logo} />
         <main className="main-content">
           <section className="about-section">
             <h1 className="about-section__title">About Us</h1>
