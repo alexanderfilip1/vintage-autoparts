@@ -117,23 +117,31 @@ export default function CategoriesPage({ logo, phone }) {
               className="filter-input"
             />
             <ul className="parts-list">
-              {paginatedParts.map((part, index) => (
-                <li key={index} className="part-item">
-                  <img
-                    src={`http://localhost:3000/${part.image}`}
-                    alt={part.name}
-                    className="part-image"
-                  />
-                  <h3 className="part-name">{part.name}</h3>
-                  <div className="part-actionBtn">
-                    <ActionBtn
-                      path={`tel:${phone}`}
-                      text={"Buy Now"}
-                      className={"showBtn"}
+              {paginatedParts.map((part, index) => {
+                const originalPrice = (part.price * 1.15).toFixed(2);
+                return (
+                  <li key={index} className="part-item">
+                    <img
+                      src={`http://localhost:3000/${part.image}`}
+                      alt={part.name}
+                      className="part-image"
                     />
-                  </div>
-                </li>
-              ))}
+                    <h3 className="part-name">{part.name}</h3>
+                    <div className="part-prices">
+                      <span className="part-originalPrice">${originalPrice}</span>
+                      <span className="part-discountedPrice">${part.price}</span>
+                    </div>
+                    <div className="part-actionBtn">
+                      <ActionBtn
+                        path={`tel:${phone}`}
+                        text={"Buy Now"}
+                        className={"showBtn"}
+                      />
+                    </div>
+                    <span className="part-discount">15% OFF</span>
+                  </li>
+                );
+              })}
             </ul>
             <div className="pagination-buttons">
               <button
