@@ -10,6 +10,7 @@ import AdminLogin from "./pages/AdminLogin";
 import useAuthToken from "./hooks/getSiteData";
 import FAQ from "./pages/FAQPage";
 import Shipping from "./pages/ShippingPage";
+import Returns from "./pages/ReturnsPage";
 function App() {
   const data = useAuthToken();
   const [siteName, setSiteName] = useState("");
@@ -34,6 +35,7 @@ function App() {
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/faq" element={<FAQ logo={siteName} />} />
         <Route path="/shipping" element={<Shipping logo={siteName} />} />
+        <Route path="/returns" element={<Returns logo={siteName} />} />
       </Routes>
     </Router>
   );
