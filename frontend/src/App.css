@@ -18,7 +18,18 @@
 .main h1 {
   font-size: 4rem;
 }
+@media screen and (max-width: 768px) {
+  .main h1 {
+    font-size: 2.5rem;
+  }
+}
 
+@media screen and (max-width: 576px) {
+  .main h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
 .main p {
   color: #95897e;
   margin-top: 1.5rem;
@@ -46,4 +57,9 @@
 .fadeIn {
   animation: fadeIn;
   animation-duration: 2s;
+}
+
+.collection__section--list,
+.mobile__nav--list {
+  list-style: none;
 }
