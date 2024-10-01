@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "../assets/css/AdminLogin.css";
 import { useNavigate } from "react-router-dom";
-
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 export default function AdminLogin() {
+  useDocumentTitle("Admin | Sign In");
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");

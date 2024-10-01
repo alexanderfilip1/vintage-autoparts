@@ -3,10 +3,11 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../assets/css/CategoriesPage.css";
 import ActionBtn from "../components/ActionBtn";
-
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 const ITEMS_PER_PAGE = 9;
 
 export default function CategoriesPage({ logo, phone }) {
+  useDocumentTitle("Shop");
   const [partsData, setPartsData] = useState({});
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
