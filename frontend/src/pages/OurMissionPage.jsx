@@ -2,8 +2,9 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../assets/css/OurMission.css";
-
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 export default function OurMission({ logo }) {
+  useDocumentTitle("Our Mission");
   return (
     <>
       <div className="main main-bg">

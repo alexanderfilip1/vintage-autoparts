@@ -2,8 +2,9 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../assets/css/Returns.css";
-
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 export default function Returns({ logo }) {
+  useDocumentTitle("Returns");
   return (
     <>
       <div className="main main-bg">

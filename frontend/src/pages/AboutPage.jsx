@@ -4,8 +4,11 @@ import Footer from "../components/Footer";
 import image1 from "../assets/images/passion-1.webp";
 import image2 from "../assets/images/passion-2.webp";
 import "../assets/css/About.css";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
 export default function About({ logo }) {
+  useDocumentTitle("About");
+
   return (
     <>
       <div className="main main-bg">

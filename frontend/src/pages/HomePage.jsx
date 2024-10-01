@@ -7,8 +7,9 @@ import PassionSection from "../components/PassionSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import useAuthToken from "../hooks/getSiteData";
-
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 export default function HomePage() {
+  useDocumentTitle("Homepage");
   const data = useAuthToken();
   const [siteName, setSiteName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");

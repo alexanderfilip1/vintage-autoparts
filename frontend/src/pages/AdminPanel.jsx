@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AdminPanelSection from "../components/AdminPanelSection";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 export default function AdminPanel() {
   const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
-
+  useDocumentTitle("Admin Panel");
   const checkIfAdmin = async () => {
     try {
       const req = await fetch("http://localhost:3000/api/checkAdmin", {
